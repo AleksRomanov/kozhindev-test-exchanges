@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "antd": "^4.19.5",
+    "axios": "^0.26.1",
+    "babel-plugin-styled-components": "^2.0.7",
+    "concurrently": "^7.1.0",
     "next": "12.1.5",
+    "next-redux-wrapper": "^7.0.5",
+    "node-sass": "^7.0.1",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-redux": "^8.0.1",
+    "rxjs": "^7.5.5",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "17.0.25",
@@ -19,6 +29,7 @@
     "@types/react-dom": "18.0.2",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
-    "typescript": "4.6.3"
+    "sass": "^1.50.1",
+    "typescript": "^4.6.3"
   }
 }
