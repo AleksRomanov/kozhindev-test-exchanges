@@ -1,7 +1,7 @@
 import {MainLayout} from "../components/MainLayout";
 import {reduxWrapper} from "../store/store";
 import {getData, getRunningOperationPromises} from "../store/api-reducer";
-import {Card, Image, List, Select} from "antd";
+import {Card, Image, List, Row, Select} from "antd";
 const { Option } = Select;
 import styled from "styled-components";
 import {fromEvent} from "rxjs";
@@ -48,14 +48,14 @@ export default function Index({data, initialData}) {
     console.log({data})
     console.log({initialData})
 
-    // const [searchResult, setSearchResult] = useState(null);
-    // const [searchInput, setSearchInput] = useState(null);
-    // const [searchStream, setSearchStream] = useState(false);
-    // const [sortType, setSortType] = useState('byAuthor');
-    //
-    // const [books, setBooks] = useState(data);
+    const [searchResult, setSearchResult] = useState(null);
+    const [searchInput, setSearchInput] = useState(null);
+    const [searchStream, setSearchStream] = useState(false);
+    const [sortType, setSortType] = useState('byAuthor');
+
+    const [books, setBooks] = useState(data);
     // const [authStatus, setAuthStatus] = useState(initialData.authStatus);
-    //
+
     // useEffect(() => {
     //
     //     !!books && sortItems(sortType);
@@ -166,23 +166,23 @@ export default function Index({data, initialData}) {
     //     initialData.authStatus = false;
     //     setAuthStatus(false);
     // }
-    //
+
 
     console.log("render");
     console.log(currencyData);
     return (
         <MainLayout class="container" title={'Page Index'}>
-            <nav>
-                <div>
-                    {<span><Link href={'/login'}><a>Header</a></Link></span>}
-                    {/*{authStatus ? <span>{localStorage.userMail}</span> : <Link href={'/login'}><a>Header</a></Link>}*/}
-                    {<button onClick={logout}>Logout</button>}
-                    {/*{authStatus && <button onClick={logout}>Logout</button>}*/}
-                </div>
-            </nav>
-            <Text style={{display: "flex", justifyContent: "center", fontSize: "4.2em", marginBottom: "30px"}} mark>The World Bestsellers</Text>
-            <Search id="search" placeholder="Поиск по автору или названию книги" allowClear style={{width: "100%", marginBottom: "20px"}}/>
-            <div id="result"></div>
+            {/*<nav>*/}
+            {/*    <div>*/}
+            {/*        {<span><Link href={'/login'}><a>Header</a></Link></span>}*/}
+            {/*        /!*{authStatus ? <span>{localStorage.userMail}</span> : <Link href={'/login'}><a>Header</a></Link>}*!/*/}
+            {/*        {<button onClick={logout}>Logout</button>}*/}
+            {/*        /!*{authStatus && <button onClick={logout}>Logout</button>}*!/*/}
+            {/*    </div>*/}
+            {/*</nav>*/}
+            {/*<Text style={{display: "flex", justifyContent: "center", fontSize: "4.2em", marginBottom: "30px"}} mark>The World Bestsellers</Text>*/}
+            {/*<Search id="search" placeholder="Поиск по автору или названию книги" allowClear style={{width: "100%", marginBottom: "20px"}}/>*/}
+            {/*<div id="result"></div>*/}
 
             {/*    <Row gutter={8}>*/}
             {/*    </Row>*/}
@@ -238,6 +238,6 @@ export const getServerSideProps = reduxWrapper.getServerSideProps(
             result => result,
             error => console.log("Rejected")
         );
-        return {props: {data: res[0].data, initialData: {data: true}}};
+        return {props: {data: res[0].data, initialData: {authorizationStatus: false}}};
     }
 );
